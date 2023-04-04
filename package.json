@@ -14,42 +14,25 @@
   "contributes": {
     "commands": [
       {
-        "command": "calicoColors.addColor",
-        "category": "Calico Colors",
-        "title": "Add Color"
-      },
-      {
-        "command": "calicoColors.clearColors",
-        "category": "Calico Colors",
-        "title": "Clear Colors",
-        "icon": "$(clear-all)"
+        "command": "extension.showWebView",
+        "title": "Show My Web View"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "package-explorer",
-          "title": "Package Explorer",
-          "icon": "resources/icon.png"
+          "id": "myWebView",
+          "title": "Web View Container Title",
+          "icon": "./resources/icon.png"
         }
       ]
     },
-    "menus": {
-			"view/title": [
-				{
-					"command": "calicoColors.clearColors",
-					"group": "navigation",
-					"when": "view == calicoColors.colorsView"
-				}
-			]
-		},
     "views": {
-      "package-explorer": [
+      "myWebView": [
         {
-					"type": "webview",
-					"id": "calicoColors.colorsView",
-					"name": "Calico Colors"
-				}
+          "id": "myWebView",
+          "name": "My Web View Title"
+        }
       ]
     }
   },
