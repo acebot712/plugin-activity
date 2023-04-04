@@ -1,17 +1,18 @@
 import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
-	// register command handlers
+	let disposable = vscode.commands.registerCommand("extension.showWebView", () => {
+		let myWebView = vscode.window.createWebviewPanel(
+			"myWebView",
+			"My Web View",
+			{ preserveFocus: true, viewColumn: vscode.ViewColumn.Two},
+			{ enableScripts: true }
+		);
 
-	let myWebView = vscode.window.createWebviewPanel(
-		"myWebView",
-		"My Web View",
-		vscode.ViewColumn.One,
-		{}
-	);
-
-	myWebView.webview.html = getWebviewContent();
-
+		vscode.commands.executeCommand("workbench.view.extension.myWebView");
+		myWebView.webview.html = getWebviewContent();
+	});
+	context.subscriptions.push(disposable);
 }
 
 function getWebviewContent() {
